@@ -15,3 +15,4 @@ MonoBehaviour:
   unit: {fileID: 8142788758929147671, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
   speed: 1
   spawnPlace: {fileID: 11400000, guid: e8dfed7382d12ac4fa3a672623f4f957, type: 2}
+  unitGraphics: {fileID: 21300000, guid: 1f00f5a77bc4d6c42a1f5d4d7495c303, type: 3}
