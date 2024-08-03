@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum type {
+    meele, 
+    range
+}
+
 public class Unit : MonoBehaviour {
+    [SerializeField] private type unitType;
     public bool isAttacking;
     private SpriteRenderer spriteRenderer;
     private float speed;
+    private float health;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +32,18 @@ public class Unit : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Unit")) {
             isAttacking = true;
+            StartCoroutine(Attack(other));
+        }
+    }
+
+    private IEnumerator Attack(Collider2D enemy) {
+        if (!enemy.TryGetComponent(out Unit u)) 
+            yield return null;
+        
+
+        while (true) {
+            yield return new WaitForSeconds(1);
+            u.SetHealth(u.GetHealth()-10);
         }
     }
 
@@ -36,5 +55,12 @@ public class Unit : MonoBehaviour {
         speed = value;
     }
 
+    public void SetHealth(float value) { 
+        health = value; 
+    }
+
+    public float GetHealth() {
+        return health;
+    }
 
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit", menuName = "Units/New Unit")]
 public class UnitSpawn : ScriptableObject {
-    [SerializeField] private GameObject unit;
     [SerializeField] private float speed;
+    [SerializeField] private float health;
+    [SerializeField] private GameObject unit;
     [SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private Sprite unitGraphics;
 
@@ -16,6 +17,7 @@ public class UnitSpawn : ScriptableObject {
         if (unitGameObject.TryGetComponent(out Unit u)) {
             u.SetSpeed(speed);
             u.SetGraphics(unitGraphics);
+            u.SetHealth(health);
         }
     }
 }
