@@ -18,6 +18,13 @@ public class UnitSpawn : ScriptableObject {
             u.SetSpeed(speed);
             u.SetGraphics(unitGraphics);
             u.SetHealth(health);
+            u.SetUnitTeam(spawnPlace.unitTeam);
+
+            if (spawnPlace.unitTeam == team.Enemy &&
+                u.TryGetComponent(out SpriteRenderer sR)) {
+                sR.flipY = true;
+                unitGameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
         }
     }
 }

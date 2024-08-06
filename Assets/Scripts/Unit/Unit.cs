@@ -10,6 +10,7 @@ public enum type {
 public class Unit : MonoBehaviour {
     [SerializeField] private type unitType;
     public bool isAttacking;
+    private team unitTeam;
     private SpriteRenderer spriteRenderer;
     private float speed;
     private float health;
@@ -30,10 +31,16 @@ public class Unit : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Unit")) {
+        if (CanAttack(other)) {
             isAttacking = true;
             StartCoroutine(Attack(other));
         }
+    }
+
+    private bool CanAttack(Collider2D other) {
+        return other.CompareTag("Unit") &&
+            other.TryGetComponent(out Unit u) &&
+            u.unitTeam != unitTeam;
     }
 
     private IEnumerator Attack(Collider2D enemy) {
@@ -63,4 +70,7 @@ public class Unit : MonoBehaviour {
         return health;
     }
 
+    public void SetUnitTeam(team uTeam) {
+        unitTeam = uTeam;
+    }
 }
