@@ -7,10 +7,10 @@ public class UnitSpawn : ScriptableObject {
     [SerializeField] private float speed;
     [SerializeField] private float health;
     [SerializeField] private GameObject unit;
-    [SerializeField] private SpawnPlace spawnPlace;
+    //[SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private Sprite unitGraphics;
 
-    public void CreateUnit() {
+    public void CreateUnit(SpawnPlace spawnPlace) {
         GameObject unitGameObject = 
             Instantiate(unit, spawnPlace.spawnPosition.position, Quaternion.identity);
 
