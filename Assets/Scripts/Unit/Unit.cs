@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private float speed;
     private float health;
+    private Weapon weapon;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,7 +51,12 @@ public class Unit : MonoBehaviour {
 
         while (true) {
             yield return new WaitForSeconds(1);
+            weapon.Damage();
             u.SetHealth(u.GetHealth()-10);
+            if (u.GetHealth() <= 0) {
+                Destroy(u.gameObject);
+                yield return null;
+            }
         }
     }
 
@@ -72,5 +78,9 @@ public class Unit : MonoBehaviour {
 
     public void SetUnitTeam(team uTeam) {
         unitTeam = uTeam;
+    }
+
+    public void SetWeapon(Weapon w) {
+        weapon = w;
     }
 }

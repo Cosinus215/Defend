@@ -7,8 +7,8 @@ public class UnitSpawn : ScriptableObject {
     [SerializeField] private float speed;
     [SerializeField] private float health;
     [SerializeField] private GameObject unit;
-    //[SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private Sprite unitGraphics;
+    [SerializeField] private GameObject weapon;
 
     public void CreateUnit(SpawnPlace spawnPlace) {
         GameObject unitGameObject = 
@@ -19,6 +19,9 @@ public class UnitSpawn : ScriptableObject {
             u.SetGraphics(unitGraphics);
             u.SetHealth(health);
             u.SetUnitTeam(spawnPlace.unitTeam);
+
+            if (Instantiate(weapon, u.transform).TryGetComponent(out Weapon w))
+                u.SetWeapon(w);
 
             if (spawnPlace.unitTeam == team.Enemy &&
                 u.TryGetComponent(out SpriteRenderer sR)) {
