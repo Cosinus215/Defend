@@ -10,10 +10,6 @@ public class Weapon : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    private void Start() {
-        transform.localPosition = new Vector2(0.6f, 0.3f);
-    }
-
     public void Damage(Unit e, Unit u) {
         if (animator == null) return;
 
