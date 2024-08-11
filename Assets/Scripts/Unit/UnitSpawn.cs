@@ -23,10 +23,8 @@ public class UnitSpawn : ScriptableObject {
             if (Instantiate(weapon, u.transform).TryGetComponent(out Weapon w))
                 u.SetWeapon(w);
 
-            if (spawnPlace.unitTeam == team.Enemy &&
-                u.TryGetComponent(out SpriteRenderer sR)) {
-                sR.flipY = true;
-                unitGameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
+            if (spawnPlace.unitTeam == team.Enemy) {
+                unitGameObject.transform.rotation = Quaternion.Euler(180, 0, 180);
             }
         }
     }
