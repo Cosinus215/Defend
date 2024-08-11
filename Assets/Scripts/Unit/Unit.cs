@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour {
     private float speed;
     private float health;
     private Weapon weapon;
+    public GameObject enemy;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,7 +35,8 @@ public class Unit : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (CanAttack(other)) {
             isAttacking = true;
-            StartCoroutine(Attack(other));
+            enemy = other.gameObject;
+            Attack();
         }
     }
 
@@ -44,20 +46,22 @@ public class Unit : MonoBehaviour {
             u.unitTeam != unitTeam;
     }
 
-    private IEnumerator Attack(Collider2D enemy) {
-        if (!enemy.TryGetComponent(out Unit u)) 
-            yield return null;
-        
+    public void DelayAttack() {
+        Invoke("Attack", 2f);
+    }
 
-        while (true) {
-            yield return new WaitForSeconds(1);
-            weapon.Damage();
-            u.SetHealth(u.GetHealth()-10);
-            if (u.GetHealth() <= 0) {
-                Destroy(u.gameObject);
-                yield return null;
-            }
+    private void Attack() {
+        if (enemy == null || !enemy.TryGetComponent(out Unit e)) 
+            return;
+
+        if (e.GetHealth() <= 0) {
+            Destroy(enemy);
         }
+        weapon.Damage(e, this);
+    }
+
+    public void DecreaseHealth(float value) {
+        health -= value;
     }
 
     public void SetGraphics(Sprite unitGraphics) {

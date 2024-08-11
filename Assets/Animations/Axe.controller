@@ -41,6 +41,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  enemy: {fileID: 0}
+  unit: {fileID: 0}
+  damageValue: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
