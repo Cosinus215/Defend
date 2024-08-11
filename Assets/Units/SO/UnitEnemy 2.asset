@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fbf759528550246876f9a90addc4cf, type: 3}
+  m_Name: UnitEnemy 2
+  m_EditorClassIdentifier: 
+  speed: 2
+  health: 20
+  unit: {fileID: 8142788758929147671, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+  unitGraphics: {fileID: 21300000, guid: 1f00f5a77bc4d6c42a1f5d4d7495c303, type: 3}
+  weapon: {fileID: 8094052994609331615, guid: 225218f91890f1e4292cd9ebf70b6b58, type: 3}

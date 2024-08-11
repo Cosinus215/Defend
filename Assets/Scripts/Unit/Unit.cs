@@ -41,23 +41,26 @@ public class Unit : MonoBehaviour {
     }
 
     private bool CanAttack(Collider2D other) {
-        return other.CompareTag("Unit") &&
+        return 
+            enemy == null &&
+            other.CompareTag("Unit") &&
             other.TryGetComponent(out Unit u) &&
             u.unitTeam != unitTeam;
     }
 
     public void DelayAttack() {
-        Invoke("Attack", 2f);
-    }
-
-    private void Attack() {
-        if (enemy == null || !enemy.TryGetComponent(out Unit e)) 
+        if (enemy == null || !enemy.TryGetComponent(out Unit e))
             return;
 
         if (e.GetHealth() <= 0) {
             Destroy(enemy);
         }
-        weapon.Damage(e, this);
+
+        Invoke("Attack", 2f);
+    }
+
+    private void Attack() {     
+        weapon.Damage(enemy.GetComponent<Unit>(), this);
     }
 
     public void DecreaseHealth(float value) {
