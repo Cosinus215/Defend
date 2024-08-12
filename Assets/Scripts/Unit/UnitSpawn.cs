@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit", menuName = "Units/New Unit")]
 public class UnitSpawn : ScriptableObject {
     [SerializeField] private float speed;
     [SerializeField] private float health;
-    [SerializeField] private GameObject unit;
+    [SerializeField] private GameObject unitTemplate;
     [SerializeField] private Sprite unitGraphics;
     [SerializeField] private GameObject weapon;
 
+    private void Reset() {
+        if (unitTemplate == null) {
+            string unitTemplatePath = "Assets/Resource/UnitTemplate.prefab";
+            unitTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
+        }
+    }
+
     public void CreateUnit(SpawnPlace spawnPlace) {
         GameObject unitGameObject = 
-            Instantiate(unit, spawnPlace.spawnPosition.position, Quaternion.identity);
+            Instantiate(
+                unitTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
+            );
 
         if (unitGameObject.TryGetComponent(out Unit u)) {
             u.SetSpeed(speed);
