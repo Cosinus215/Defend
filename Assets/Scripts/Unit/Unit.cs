@@ -15,13 +15,13 @@ public class Unit : MonoBehaviour {
     private float speed;
     private float health;
     private Weapon weapon;
-    public GameObject enemy;
+    private Queue<Unit> enemyQueue = new Queue<Unit>();
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Start() { 
+    public void Start() {      
         isAttacking = false;
     }
 
@@ -33,34 +33,44 @@ public class Unit : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (CanAttack(other)) {
+        if (CanAttack(other, out Unit u)) {
+            enemyQueue.Enqueue(u);
             isAttacking = true;
-            enemy = other.gameObject;
             Attack();
         }
     }
 
-    private bool CanAttack(Collider2D other) {
-        return 
-            enemy == null &&
-            other.CompareTag("Unit") &&
+    private bool CanAttack(Collider2D other, out Unit enemyUnit) {
+        enemyUnit = null;
+
+        if (other.CompareTag("Unit") &&
             other.TryGetComponent(out Unit u) &&
-            u.unitTeam != unitTeam;
+            u.unitTeam != unitTeam) {
+            enemyUnit = u;
+            return true;
+        }
+        return false;
+            
     }
 
     public void DelayAttack() {
-        if (enemy == null || !enemy.TryGetComponent(out Unit e))
+        if (enemyQueue.Count == 0)
             return;
 
-        if (e.GetHealth() <= 0) {
-            Destroy(enemy);
+        if (enemyQueue.Peek().GetHealth() <= 0) {
+            Destroy(enemyQueue.Dequeue().gameObject);
+        }
+
+        if (enemyQueue.Count == 0) {
+            isAttacking = false;
+            return;
         }
 
         Invoke("Attack", 2f);
     }
 
-    private void Attack() {     
-        weapon.Damage(enemy.GetComponent<Unit>(), this);
+    private void Attack() {
+        weapon.Damage(enemyQueue.Peek(), this);
     }
 
     public void DecreaseHealth(float value) {
