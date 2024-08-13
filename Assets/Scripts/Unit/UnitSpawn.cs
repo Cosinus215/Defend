@@ -7,21 +7,21 @@ using UnityEngine;
 public class UnitSpawn : ScriptableObject {
     [SerializeField] private float speed;
     [SerializeField] private float health;
-    [SerializeField] private GameObject unitTemplate;
+    [SerializeField] private GameObject unitTypeTemplate;
     [SerializeField] private Sprite unitGraphics;
     [SerializeField] private GameObject weapon;
 
     private void Reset() {
-        if (unitTemplate == null) {
-            string unitTemplatePath = "Assets/Resource/UnitTemplate.prefab";
-            unitTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
+        if (unitTypeTemplate == null) {
+            string unitTemplatePath = "Assets/Prefabs/Units/Types/MeleeUnitTemplate.prefab";
+            unitTypeTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
         }
     }
 
     public void CreateUnit(SpawnPlace spawnPlace) {
         GameObject unitGameObject = 
             Instantiate(
-                unitTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
+                unitTypeTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
             );
 
         if (unitGameObject.TryGetComponent(out Unit u)) {
