@@ -13,7 +13,12 @@ public class WeaponActions : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemy == null || unit == null) {
+        if (unit == null) {
+            return;
+        }
+
+        if (enemy == null) {
+            unit.DelayAttack();
             animator.enabled = false;
             return;
         }
@@ -29,8 +34,10 @@ public class WeaponActions : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (unit == null || enemy == null) 
+        if (unit == null) {
             return;
+        }
+
         unit.DelayAttack();
         animator.enabled = false;
         

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum type {
@@ -8,8 +9,8 @@ public enum type {
 }
 
 public class Unit : MonoBehaviour {
-    [SerializeField] private type unitType;
-    public bool isAttacking;
+    private type unitType;
+    private bool isAttacking;
     private team unitTeam;
     private SpriteRenderer spriteRenderer;
     private float speed;
@@ -54,12 +55,15 @@ public class Unit : MonoBehaviour {
     }
 
     public void DelayAttack() {
-        if (enemyQueue.Count == 0)
+        if (enemyQueue.Count == 0) {
             return;
-
-        if (enemyQueue.Peek().GetHealth() <= 0) {
-            Destroy(enemyQueue.Dequeue().gameObject);
         }
+
+        if (enemyQueue.TryPeek(out Unit u) && u != null && u.GetHealth() <= 0) {
+            enemyQueue.Dequeue();
+            Destroy(u.gameObject); 
+        }
+
 
         if (enemyQueue.Count == 0) {
             isAttacking = false;
@@ -70,7 +74,15 @@ public class Unit : MonoBehaviour {
     }
 
     private void Attack() {
-        weapon.Damage(enemyQueue.Peek(), this);
+        while (enemyQueue.TryPeek(out Unit u)) {
+            if (u == null) {
+                enemyQueue.Dequeue();
+                if (enemyQueue.Count == 0) isAttacking = false;
+                continue;
+            }
+            weapon.Damage(u, this);
+            break; 
+        }
     }
 
     public void DecreaseHealth(float value) {
