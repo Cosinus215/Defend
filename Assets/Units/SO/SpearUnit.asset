@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6fbf759528550246876f9a90addc4cf, type: 3}
-  m_Name: UnitEnemy 2
+  m_Name: SpearUnit
   m_EditorClassIdentifier: 
   speed: 2
   health: 200
