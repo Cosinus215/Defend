@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class UnitSpawn : ScriptableObject {
     [SerializeField] private GameObject unitTypeTemplate;
     [SerializeField] private Sprite unitGraphics;
     [SerializeField] private GameObject weapon;
+    [SerializeField] private int manaNeeded;
 
     private void Reset() {
         if (unitTypeTemplate == null) {
@@ -19,6 +21,8 @@ public class UnitSpawn : ScriptableObject {
     }
 
     public void CreateUnit(SpawnPlace spawnPlace) {
+        GameManager.instance.DecreaseMana(manaNeeded);
+
         GameObject unitGameObject = 
             Instantiate(
                 unitTypeTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
@@ -37,5 +41,9 @@ public class UnitSpawn : ScriptableObject {
                 unitGameObject.transform.rotation = Quaternion.Euler(180, 0, 180);
             }
         }
+    }
+
+    public int GetManaNeeded() {
+        return manaNeeded;
     }
 }
