@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public int mana;
-    public Slider manaSlider;
+    public ManaBar manaBar;
     public static GameManager instance;
 
     private void Awake() {
@@ -16,12 +16,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private void OnValidate() {
+        manaBar.maxSliderValue = mana;
+    }
+
     public void DecreaseMana(int value) {
         mana -= value;
         UpdateUI();
     }
 
     private void UpdateUI() {
-        manaSlider.value = mana;
+        manaBar.UpdateManaBar(mana);
     }
 }
