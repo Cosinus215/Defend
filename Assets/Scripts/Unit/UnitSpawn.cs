@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,8 +18,6 @@ public class UnitSpawn : ScriptableObject {
     }
 
     public void CreateUnit(SpawnPlace spawnPlace) {
-        GameManager.instance.DecreaseMana(manaNeeded);
-
         GameObject unitGameObject = 
             Instantiate(
                 unitTypeTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
@@ -39,8 +34,15 @@ public class UnitSpawn : ScriptableObject {
 
             if (spawnPlace.unitTeam == team.Enemy) {
                 unitGameObject.transform.rotation = Quaternion.Euler(180, 0, 180);
+                return;
             }
+            TakeMana();
+
         }
+    }
+
+    private void TakeMana() {
+        GameManager.instance.DecreaseMana(manaNeeded);
     }
 
     public int GetManaNeeded() {
