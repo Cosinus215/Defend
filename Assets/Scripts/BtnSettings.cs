@@ -7,6 +7,7 @@ public class BtnSettings : MonoBehaviour {
     private GameManager gameManager;
     private Button button;
     private int manaRequired;
+    private bool clickedDelay;
 
     private void Awake() {
         button = GetComponent<Button>();
@@ -14,14 +15,15 @@ public class BtnSettings : MonoBehaviour {
 
     private void Start() {
         gameManager = GameManager.instance;
+        CustomEvents.instance.onButtonClick += Test;
         AssignManaRequired();
     }
 
-    private void FixedUpdate() {
-        CheckMana();
-    }
-
-    private void CheckMana() {
+    public void OnClickButton() {
+        CustomEvents.instance.ButtonClick();
+    } 
+    
+    public void Test() {
         if (gameManager.mana < manaRequired) {
             button.interactable = false;
             return;
