@@ -12,13 +12,12 @@ public class UnitSpawn : ScriptableObject {
 
     private void Reset() {
         if (unitTypeTemplate == null) {
-            string unitTemplatePath = "Assets/Prefabs/Units/Types/MeleeUnitTemplate.prefab";
-            unitTypeTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
-        }
-    }
+            string unitTemplatePath = 
+                "Assets/Prefabs/Units/Types/MeleeUnitTemplate.prefab";
 
-    private void TakeMana() {
-        GameManager.instance.DecreaseMana(manaNeeded);
+            unitTypeTemplate = 
+                AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
+        }
     }
 
     public int GetManaNeeded() {

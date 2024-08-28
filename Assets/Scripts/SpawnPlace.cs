@@ -24,7 +24,8 @@ public class SpawnPlace : ScriptableObject {
             u.SetHealth(uS.GetHealth());
             u.SetUnitTeam(unitTeam);
 
-            if (Instantiate(uS.GetWeapon(), u.transform).TryGetComponent(out Weapon w))
+            if (Instantiate(uS.GetWeapon(), u.transform)
+                .TryGetComponent(out Weapon w))
                 u.SetWeapon(w);
 
             if (unitTeam == team.Enemy) {

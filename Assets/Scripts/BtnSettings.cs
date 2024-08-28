@@ -5,18 +5,25 @@ public class BtnSettings : MonoBehaviour {
     private GameManager gameManager;
     private Button button;
     private int manaRequired;
+    [SerializeField] private SpawnPlace spawnPlace;
+    [SerializeField] private UnitSpawn unitToSpawn;
+    private Image buttonImage;
 
     private void Awake() {
         button = GetComponent<Button>();
+        buttonImage = GetComponent<Image>();
     }
 
     private void Start() {
         gameManager = GameManager.instance;
         CustomEvents.instance.onButtonClick += ButtonClick;
+        button.onClick.AddListener(delegate { spawnPlace.CreateUnit(unitToSpawn); });
+        button.onClick.AddListener(delegate { OnButtonClick(); });
         AssignManaRequired();
+        AssignButtonSprite();
     }
 
-    public void OnButtonClick() {
+    private void OnButtonClick() {
         CustomEvents.instance.ButtonClick();
     } 
     
@@ -24,17 +31,16 @@ public class BtnSettings : MonoBehaviour {
         if (gameManager.GetMana() < manaRequired) {
             button.interactable = false;
             return;
-        } else {
-            button.interactable = true;
-        }
+        } 
+        
+        button.interactable = true;
     }
 
     private void AssignManaRequired() {
-        if (button.onClick.GetPersistentEventCount() == 0) {
-            Debug.LogWarning($"No event Attached to this button: {button.name}!");
-            return;
-        }
+        manaRequired = unitToSpawn.GetManaNeeded();
+    }
 
-        manaRequired = (button.onClick.GetPersistentTarget(0) as UnitSpawn).GetManaNeeded();
+    private void AssignButtonSprite() {
+        buttonImage.sprite = unitToSpawn.GetUnitGraphics();
     }
 }

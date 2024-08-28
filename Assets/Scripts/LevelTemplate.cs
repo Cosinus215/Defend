@@ -9,6 +9,4 @@ public class LevelTemplate : ScriptableObject {
     public void AddToLevelManager() {
         LevelManager.instance.levelTemplate = this;
     }
-
-    
 }

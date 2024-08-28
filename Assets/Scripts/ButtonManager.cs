@@ -12,7 +12,6 @@ public class ButtonManager : ScriptableObject {
     
     public void ToggleGameObject(GameObject objectToActivate) {
         objectToActivate.SetActive(!objectToActivate.activeSelf);
-
     }
 
     public void TogglePauseGame(Transform buttonsPanel) {

@@ -120,31 +120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1827446877975617566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: e8dfed7382d12ac4fa3a672623f4f957, type: 2}
-        m_TargetAssemblyTypeName: SpawnPlace, Assembly-CSharp
-        m_MethodName: CreateUnit
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnitSpawn, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7787324924424933309}
-        m_TargetAssemblyTypeName: BtnSettings, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7787324924424933309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341beb66227b7a34e97611d11f0371f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPlace: {fileID: 11400000, guid: e8dfed7382d12ac4fa3a672623f4f957, type: 2}
+  unitToSpawn: {fileID: 0}
