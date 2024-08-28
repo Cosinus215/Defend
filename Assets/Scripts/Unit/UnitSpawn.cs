@@ -17,37 +17,31 @@ public class UnitSpawn : ScriptableObject {
         }
     }
 
-    public void CreateUnit(SpawnPlace spawnPlace) {
-        GameObject unitGameObject = 
-            Instantiate(
-                unitTypeTemplate, 
-                spawnPlace.spawnPosition.position, 
-                Quaternion.identity
-            );
-
-        if (unitGameObject.TryGetComponent(out Unit u)) {
-            u.SetSpeed(speed);
-            u.SetGraphics(unitGraphics);
-            u.SetHealth(health);
-            u.SetUnitTeam(spawnPlace.unitTeam);
-
-            if (Instantiate(weapon, u.transform).TryGetComponent(out Weapon w))
-                u.SetWeapon(w);
-
-            if (spawnPlace.unitTeam == team.Enemy) {
-                unitGameObject.transform.rotation = Quaternion.Euler(180, 0, 180);
-                return;
-            }
-            TakeMana();
-
-        }
-    }
-
     private void TakeMana() {
         GameManager.instance.DecreaseMana(manaNeeded);
     }
 
     public int GetManaNeeded() {
         return manaNeeded;
+    }
+
+    public float GetHealth() {
+        return health;
+    }
+
+    public GameObject GetWeapon() {
+        return weapon;
+    }
+
+    public Sprite GetUnitGraphics() {
+        return unitGraphics;
+    }
+
+    public float GetSpeed() {
+        return speed; 
+    }
+
+    public GameObject GetUnitTypeTemplate() {
+        return unitTypeTemplate;
     }
 }

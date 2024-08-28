@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
     IEnumerator SpawnUnit(List<UnitSpawn> unitsToSpawn, SpawnPlace spawnPlace) {
         while (unitsToSpawn.Count > 0) {
             yield return new WaitForSeconds(4);
-            unitsToSpawn[0].CreateUnit(spawnPlace);
+            spawnPlace.CreateUnit(unitsToSpawn[0]);
         }
     }
 
