@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-    public int mana;
-    public ManaBar manaBar;
+    [SerializeField] private int mana;
+    [SerializeField] private ManaBar manaBar;
     public static GameManager instance;
-
+    private LevelTemplate levelTemplate;
 
     private void Awake() {
         if (instance == null) {
@@ -18,7 +17,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        StartCoroutine(SpawnUnit(LevelManager.instance.levelTemplate.unitsToSpawn, LevelManager.instance.levelTemplate.spawnPlace));
+        levelTemplate = LevelManager.instance.levelTemplate;
+        if (levelTemplate == null) return;
+
+        StartCoroutine(SpawnUnit(
+            levelTemplate.unitsToSpawn, levelTemplate.spawnPlace)
+        );
     }
 
     IEnumerator SpawnUnit(List<UnitSpawn> unitsToSpawn, SpawnPlace spawnPlace) {
@@ -39,5 +43,9 @@ public class GameManager : MonoBehaviour {
 
     private void UpdateUI() {
         manaBar.UpdateManaBar(mana);
+    }
+
+    public int GetMana() {
+        return mana;
     }
 }

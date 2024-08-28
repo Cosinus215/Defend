@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +5,6 @@ public class BtnSettings : MonoBehaviour {
     private GameManager gameManager;
     private Button button;
     private int manaRequired;
-    private bool clickedDelay;
 
     private void Awake() {
         button = GetComponent<Button>();
@@ -15,16 +12,16 @@ public class BtnSettings : MonoBehaviour {
 
     private void Start() {
         gameManager = GameManager.instance;
-        CustomEvents.instance.onButtonClick += Test;
+        CustomEvents.instance.onButtonClick += ButtonClick;
         AssignManaRequired();
     }
 
-    public void OnClickButton() {
+    public void OnButtonClick() {
         CustomEvents.instance.ButtonClick();
     } 
     
-    public void Test() {
-        if (gameManager.mana < manaRequired) {
+    private void ButtonClick() {
+        if (gameManager.GetMana() < manaRequired) {
             button.interactable = false;
             return;
         } else {

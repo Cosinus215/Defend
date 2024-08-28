@@ -20,7 +20,9 @@ public class UnitSpawn : ScriptableObject {
     public void CreateUnit(SpawnPlace spawnPlace) {
         GameObject unitGameObject = 
             Instantiate(
-                unitTypeTemplate, spawnPlace.spawnPosition.position, Quaternion.identity
+                unitTypeTemplate, 
+                spawnPlace.spawnPosition.position, 
+                Quaternion.identity
             );
 
         if (unitGameObject.TryGetComponent(out Unit u)) {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ManaBar : MonoBehaviour {
@@ -16,7 +14,9 @@ public class ManaBar : MonoBehaviour {
 
     private void Start() {
         sliderValue = maxSliderValue;
-        backgroundRectTransform.sizeDelta = new Vector2(maxSliderValue, backgroundRectTransform.sizeDelta.y);
+        backgroundRectTransform.sizeDelta = new Vector2(
+            maxSliderValue, backgroundRectTransform.sizeDelta.y
+        );
     }
 
     public void UpdateManaBar(float value) {

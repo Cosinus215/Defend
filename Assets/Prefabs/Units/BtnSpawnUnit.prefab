@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7787324924424933309}
         m_TargetAssemblyTypeName: BtnSettings, Assembly-CSharp
-        m_MethodName: OnClickButton
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
