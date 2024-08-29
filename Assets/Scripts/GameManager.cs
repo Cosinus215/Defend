@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -15,7 +16,9 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        playerBaseHealth = 6; 
+        playerBaseHealth = 6;
+
+        StartCoroutine(IncreaseMana());
     }
 
     public void DecreaseMana(int value) {
@@ -29,5 +32,14 @@ public class GameManager : MonoBehaviour {
 
     public int GetMana() {
         return mana;
+    }
+
+    private IEnumerator IncreaseMana() {
+        while (true) {
+            yield return new WaitForSeconds(2);
+            mana++;
+            UpdateUI();
+
+        }
     }
 }
