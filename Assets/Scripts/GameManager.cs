@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private ManaBar manaBar;
     public static GameManager instance;
     private int playerBaseHealth;
+    private int enemyBaseHealth;
 
     private void Awake() {
         if (instance == null) {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
+        enemyBaseHealth = 6;
         playerBaseHealth = 6;
 
         StartCoroutine(IncreaseMana());
@@ -32,6 +34,18 @@ public class GameManager : MonoBehaviour {
 
     public int GetMana() {
         return mana;
+    }
+
+    public int GetEnemyBaseHealth() { 
+        return enemyBaseHealth;
+    }
+
+    public void DecreasePlayerBaseHealth() {
+        playerBaseHealth--; 
+    }
+    
+    public void DecreaseEnemyBaseHealth() {
+        enemyBaseHealth--; 
     }
 
     private IEnumerator IncreaseMana() {

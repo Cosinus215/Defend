@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour {
     private LevelTemplate levelTemplate;
-    private int enemyBaseHealth;
 
-    private void Start() {
-        enemyBaseHealth = 6;
+    private void Start() { 
 
         levelTemplate = LevelManager.instance.levelTemplate;
         if (levelTemplate == null) return;
@@ -22,7 +20,7 @@ public class SpawnEnemies : MonoBehaviour {
 
         int randomUnit = Random.Range(0, unitsToSpawn.Count);
 
-        while (enemyBaseHealth > 0) {
+        while (GameManager.instance.GetEnemyBaseHealth() > 0) {
             yield return new WaitForSeconds(4);
             spawnPlace.CreateUnit(unitsToSpawn[randomUnit]);
         }

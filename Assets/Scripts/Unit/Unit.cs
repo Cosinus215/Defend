@@ -110,4 +110,8 @@ public class Unit : MonoBehaviour {
     public void SetWeapon(Weapon w) {
         weapon = w;
     }
+
+    public team GetUnitTeam() {
+        return unitTeam;
+    }
 }
