@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] private int mana;
     [SerializeField] private ManaBar manaBar;
     public static GameManager instance;
-    private LevelTemplate levelTemplate;
+    private int playerBaseHealth;
 
     private void Awake() {
         if (instance == null) {
@@ -17,23 +15,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        levelTemplate = LevelManager.instance.levelTemplate;
-        if (levelTemplate == null) return;
-
-        StartCoroutine(SpawnUnit(
-            levelTemplate.unitsToSpawn, levelTemplate.spawnPlace)
-        );
-    }
-
-    IEnumerator SpawnUnit(List<UnitSpawn> unitsToSpawn, SpawnPlace spawnPlace) {
-        while (unitsToSpawn.Count > 0) {
-            yield return new WaitForSeconds(4);
-            spawnPlace.CreateUnit(unitsToSpawn[0]);
-        }
-    }
-
-    private void OnValidate() {
-        manaBar.maxSliderValue = mana;
+        playerBaseHealth = 6; 
     }
 
     public void DecreaseMana(int value) {
