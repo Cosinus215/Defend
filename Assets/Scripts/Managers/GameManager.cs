@@ -53,10 +53,10 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator IncreaseMana() {
         while (true) {
-            yield return new WaitForSeconds(2);
-            mana++;
+            yield return new WaitForSeconds(1);
+            mana += 5;
             UpdateUI();
-
+            CustomEvents.instance.ButtonClick();
         }
     }
 }
