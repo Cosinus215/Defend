@@ -10,16 +10,6 @@ public class UnitSpawn : ScriptableObject {
     [SerializeField] private GameObject weapon;
     [SerializeField] private int manaNeeded;
 
-    private void Reset() {
-        if (unitTypeTemplate == null) {
-            string unitTemplatePath = 
-                "Assets/Prefabs/Units/Types/MeleeUnitTemplate.prefab";
-
-            unitTypeTemplate = 
-                AssetDatabase.LoadAssetAtPath<GameObject>(unitTemplatePath);
-        }
-    }
-
     public int GetManaNeeded() {
         return manaNeeded;
     }
