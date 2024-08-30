@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     [SerializeField] private int mana;
     [SerializeField] private ManaBar manaBar;
+    public int generalBasesHealth;
     public static GameManager instance;
     private int playerBaseHealth;
     private int enemyBaseHealth;
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        enemyBaseHealth = 6;
-        playerBaseHealth = 6;
+        enemyBaseHealth = generalBasesHealth;
+        playerBaseHealth = generalBasesHealth;
 
         StartCoroutine(IncreaseMana());
     }
@@ -40,13 +41,15 @@ public class GameManager : MonoBehaviour {
         return enemyBaseHealth;
     }
 
-    public void DecreasePlayerBaseHealth() {
+    public int DecreasePlayerBaseHealth() {
         playerBaseHealth--; 
+        return playerBaseHealth;
     }
     
-    public void DecreaseEnemyBaseHealth() {
+    public int DecreaseEnemyBaseHealth() {
         enemyBaseHealth--; 
-    }
+        return enemyBaseHealth;
+    } 
 
     private IEnumerator IncreaseMana() {
         while (true) {
