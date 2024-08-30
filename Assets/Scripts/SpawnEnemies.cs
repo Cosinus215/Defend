@@ -5,8 +5,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour {
     private LevelTemplate levelTemplate;
 
-    private void Start() { 
-
+    private void Start() {
         levelTemplate = LevelManager.instance.levelTemplate;
         if (levelTemplate == null) return;
 

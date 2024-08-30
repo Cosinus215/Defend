@@ -16,6 +16,10 @@ public class ButtonManager : ScriptableObject {
 
     public void TogglePauseGame(Transform buttonsPanel) {
         Time.timeScale = (Time.timeScale == 1f) ? 0.0f : 1.0f;
+        ToggleAllSpawnUnitsButtons(buttonsPanel);
+    }
+
+    public void ToggleAllSpawnUnitsButtons(Transform buttonsPanel) {
         foreach (Button btn in buttonsPanel.GetComponentsInChildren<Button>()) {
             if (btn != buttonsPanel) {
                 btn.interactable = !btn.interactable;

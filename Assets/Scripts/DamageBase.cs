@@ -9,6 +9,7 @@ public class DamageBase : MonoBehaviour {
 
     private void Start() {
         UpdateUI(GameManager.instance.generalBasesHealth);
+        CustomEvents.instance.onEndGame += DestroySpawnPoints;
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -16,19 +17,18 @@ public class DamageBase : MonoBehaviour {
             switch (teamBase) {
                 case team.Player:
                     UpdateUI(
-                        GameManager.instance.DecreaseEnemyBaseHealth()
+                        GameManager.instance.DecreasePlayerBaseHealth()
                     );
                     break;
 
                 case team.Enemy:
                     UpdateUI(
-                        GameManager.instance.DecreasePlayerBaseHealth()
+                        GameManager.instance.DecreaseEnemyBaseHealth()
                     );
                     break;
             }
 
             Destroy(collider.gameObject);
-            
         }
     }
 
@@ -40,5 +40,9 @@ public class DamageBase : MonoBehaviour {
 
     private void UpdateUI(int value) {
         baseHealthText.SetText($"Health: {value}");
+    }
+
+    private void DestroySpawnPoints() {
+        Destroy(gameObject);
     }
 }

@@ -15,4 +15,12 @@ public class CustomEvents : MonoBehaviour {
         }
     
     }
+
+    public event Action onEndGame;
+    public void EndGame() {
+        if (onEndGame != null) {
+            onEndGame();
+        }
+
+    }
 }

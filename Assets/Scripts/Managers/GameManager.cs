@@ -2,12 +2,17 @@ using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public int generalBasesHealth;
+    [SerializeField] private Transform spawnUnitButtonsPanel;
+    [SerializeField] private ButtonManager buttonManager;
+    [SerializeField] private GameObject wonPanel;
+    [SerializeField] private GameObject lostPanel;
     [SerializeField] private int mana;
     [SerializeField] private ManaBar manaBar;
-    public int generalBasesHealth;
     public static GameManager instance;
     private int playerBaseHealth;
     private int enemyBaseHealth;
+    private bool gameEnded;
 
     private void Awake() {
         if (instance == null) {
@@ -17,7 +22,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+
     private void Start() {
+        gameEnded = false;
         enemyBaseHealth = generalBasesHealth;
         playerBaseHealth = generalBasesHealth;
 
@@ -42,21 +49,38 @@ public class GameManager : MonoBehaviour {
     }
 
     public int DecreasePlayerBaseHealth() {
-        playerBaseHealth--; 
+        playerBaseHealth--;
+
+        if (playerBaseHealth <= 0) {
+            EnableEndGamePanel(lostPanel);
+        }
+
         return playerBaseHealth;
     }
     
     public int DecreaseEnemyBaseHealth() {
-        enemyBaseHealth--; 
+        enemyBaseHealth--;
+
+        if (enemyBaseHealth <= 0) {
+            EnableEndGamePanel(wonPanel);
+        }
+
         return enemyBaseHealth;
     } 
 
+    private void EnableEndGamePanel(GameObject panel) {
+        buttonManager.ToggleAllSpawnUnitsButtons(spawnUnitButtonsPanel);
+        panel.SetActive(true);
+        CustomEvents.instance.EndGame();
+        gameEnded = true;
+    }
+
     private IEnumerator IncreaseMana() {
-        while (true) {
-            yield return new WaitForSeconds(1);
+        while (!gameEnded) {
             mana += 5;
             UpdateUI();
             CustomEvents.instance.ButtonClick();
+            yield return new WaitForSeconds(1);
         }
     }
 }
