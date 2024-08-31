@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject wonPanel;
     [SerializeField] private GameObject lostPanel;
     [SerializeField] private int mana;
+    [SerializeField] private int maxMana;
     [SerializeField] private ManaBar manaBar;
     public static GameManager instance;
     private int playerBaseHealth;
@@ -22,11 +23,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
     private void Start() {
         gameEnded = false;
         enemyBaseHealth = generalBasesHealth;
         playerBaseHealth = generalBasesHealth;
+        manaBar.SetMaxMana(maxMana);
+        UpdateUI();
 
         StartCoroutine(IncreaseMana());
     }
@@ -77,10 +79,13 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator IncreaseMana() {
         while (!gameEnded) {
-            mana += 5;
-            UpdateUI();
+            if (mana < maxMana) {
+                mana += 5;
+                UpdateUI();
+                mana = Mathf.Clamp(mana, 0, maxMana);
+            }
             CustomEvents.instance.ButtonClick();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
     }
 }

@@ -3,8 +3,7 @@ using UnityEngine;
 public class ManaBar : MonoBehaviour {
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject slider;
-    public float maxSliderValue;
-    public float sliderValue;
+    private float maxSliderValue;
     private RectTransform backgroundRectTransform;
     private RectTransform sliderRectTransform;
 
@@ -12,22 +11,21 @@ public class ManaBar : MonoBehaviour {
         GetRectTranform();
     }
 
-    private void Start() {
-        sliderValue = maxSliderValue;
-        backgroundRectTransform.sizeDelta = new Vector2(
-            maxSliderValue, backgroundRectTransform.sizeDelta.y
-        );
+    public void SetMaxMana(int value) {
+        maxSliderValue = value;
     }
 
-    public void UpdateManaBar(float value) {
-        sliderValue = value;
-        sliderRectTransform.sizeDelta = new Vector2(sliderValue, 100);
-        sliderValue = Mathf.Clamp(sliderValue, 0, maxSliderValue);
+    public void UpdateManaBar(float newMana) {
+        float sliderSize = backgroundRectTransform.sizeDelta.x;
+        float manaToWidthScale = sliderSize / maxSliderValue;
+
+        sliderRectTransform.sizeDelta = new Vector2( 
+            newMana * manaToWidthScale, 25 
+        );
     }
 
     private void GetRectTranform() {
         backgroundRectTransform = background.GetComponent<RectTransform>();
         sliderRectTransform = slider.GetComponent<RectTransform>();
     }
-
 }

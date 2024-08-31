@@ -875,7 +875,8 @@ MonoBehaviour:
   buttonManager: {fileID: 11400000, guid: 562bf48b3710dc843a1571e2f0755432, type: 2}
   wonPanel: {fileID: 1711388376}
   lostPanel: {fileID: 768964958}
-  mana: 200
+  mana: 0
+  maxMana: 100
   manaBar: {fileID: 1436798553}
 --- !u!4 &941849103
 Transform:
@@ -2002,8 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 1436798551}
   slider: {fileID: 1821522523}
-  maxSliderValue: 200
-  sliderValue: 200
+  maxSliderValue: 100
 --- !u!114 &1436798554
 MonoBehaviour:
   m_ObjectHideFlags: 0
