@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1229105275714240324
+--- !u!1001 &444335833678359771
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,21 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 326061438636663405, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
-      propertyPath: m_Size.x
-      value: 1
+    - target: {fileID: 747276105192074760, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+      propertyPath: unitType
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 326061438636663405, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+    - target: {fileID: 2428353419933397138, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428353419933397138, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
       propertyPath: m_Size.y
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 326061438636663405, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+    - target: {fileID: 2428353419933397138, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
       propertyPath: m_Offset.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 326061438636663405, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
+    - target: {fileID: 2428353419933397138, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6122939926654646829, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142788758929147671, guid: 31ef6f5ea1dca8f4f9de17dadae9bafa, type: 3}
       propertyPath: m_Name
-      value: MeleeUnitTemplate
+      value: Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
