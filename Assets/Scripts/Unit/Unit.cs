@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum type {
@@ -7,7 +8,7 @@ public enum type {
 }
 
 public class Unit : MonoBehaviour {
-    private type unitType;
+    [SerializeField] private type unitType;
     private bool isAttacking;
     private team unitTeam;
     private SpriteRenderer spriteRenderer;
@@ -15,6 +16,7 @@ public class Unit : MonoBehaviour {
     private float health;
     private Weapon weapon;
     private Queue<Unit> enemyQueue = new Queue<Unit>();
+    public List<Unit> targets = new List<Unit>();
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +27,8 @@ public class Unit : MonoBehaviour {
     }
 
     private void Update() {
+        targets = enemyQueue.ToList();
+
         if (isAttacking) 
             return;
 
@@ -44,7 +48,9 @@ public class Unit : MonoBehaviour {
 
         if (other.CompareTag("Unit") &&
             other.TryGetComponent(out Unit u) &&
-            u.unitTeam != unitTeam) {
+            u.unitTeam != unitTeam &&
+            !enemyQueue.Contains(u)) {
+
             enemyUnit = u;
             return true;
         }
@@ -78,7 +84,7 @@ public class Unit : MonoBehaviour {
                 if (enemyQueue.Count == 0) isAttacking = false;
                 continue;
             }
-            weapon.Damage(u, this);
+            weapon.Damage(u, this, unitType);
             break; 
         }
     }
