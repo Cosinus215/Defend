@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 20
-  unitTypeTemplate: {fileID: 8586787986323286988, guid: 33f59ead8f117b2428e289e510a25a0c, type: 3}
+  unitTypeTemplate: {fileID: 6613090065609004498, guid: 34d83fcef5003e245a965144b4d689a8, type: 3}
   unitGraphics: {fileID: 21300000, guid: 1f00f5a77bc4d6c42a1f5d4d7495c303, type: 3}
   weapon: {fileID: 4096907919424855502, guid: 224e836f108965c4983a10767b10acd0, type: 3}
   manaNeeded: 5
