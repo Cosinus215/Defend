@@ -6,6 +6,11 @@ public class Ammo : MonoBehaviour {
     private Weapon weapon;
 
     private void Update() {
+        if (enemy == null) {
+            Destroy(gameObject);
+            return;
+        }
+
         Move();
         Rotate();
     }
@@ -28,8 +33,9 @@ public class Ammo : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        weapon.TakeDamage(enemy);
         unit.DelayAttack();
+        if (enemy == null) return;
+        weapon.TakeDamage(enemy);
     }
 
     private void Rotate() {
