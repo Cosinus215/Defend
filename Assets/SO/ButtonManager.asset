@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe3692379bee140bdb94bbf13c9e1d, type: 3}
   m_Name: ButtonManager
   m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 91138aaba1811b34799cda0af297a058, type: 3}

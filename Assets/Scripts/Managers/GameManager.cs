@@ -19,14 +19,17 @@ public class GameManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
         } else {
-            Debug.LogError("There is more than one GameManager on the scene");
+            Debug.LogError("There is more than one GameManager on the scene"); 
+            Destroy(gameObject);
         }
+
+        enemyBaseHealth = generalBasesHealth;
+        playerBaseHealth = generalBasesHealth;
     }
 
     private void Start() {
         gameEnded = false;
-        enemyBaseHealth = generalBasesHealth;
-        playerBaseHealth = generalBasesHealth;
+        
         manaBar.SetMaxMana(maxMana);
         UpdateUI();
 

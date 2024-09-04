@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ButtonManager", menuName = "ButtonManager/New ButtonManager")]
 public class ButtonManager : ScriptableObject {
+    [SerializeField] private AudioClip clickSound;
 
     public void LoadNewScene(string scene) {
+        PlayButtonClickSound();
         SceneManager.LoadScene(scene);
+    }
+
+    public void SwitchMusic(AudioClip backgroundMusic) {
+        MusicManager.instance.PlayMusic(backgroundMusic);
     }
     
     public void ToggleGameObject(GameObject objectToActivate) {
+        PlayButtonClickSound();
         objectToActivate.SetActive(!objectToActivate.activeSelf);
     }
 
@@ -20,6 +27,7 @@ public class ButtonManager : ScriptableObject {
     }
 
     public void ToggleAllSpawnUnitsButtons(Transform buttonsPanel) {
+        PlayButtonClickSound();
         foreach (Button btn in buttonsPanel.GetComponentsInChildren<Button>()) {
             if (btn != buttonsPanel) {
                 btn.interactable = !btn.interactable;
@@ -34,5 +42,11 @@ public class ButtonManager : ScriptableObject {
             EditorApplication.ExitPlaymode();
         #endif
 
+    }
+
+    private void PlayButtonClickSound() {
+        if (clickSound == null) return;
+
+        SoundManager.instance.PlaySound(clickSound);
     }
 }
