@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public int generalBasesHealth;
-    [SerializeField] private Transform spawnUnitButtonsPanel;
+    [SerializeField] private CanvasGroup gameplayUI;
     [SerializeField] private ButtonManager buttonManager;
     [SerializeField] private GameObject wonPanel;
     [SerializeField] private GameObject lostPanel;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
     } 
 
     private void EnableEndGamePanel(GameObject panel) {
-        buttonManager.ToggleAllSpawnUnitsButtons(spawnUnitButtonsPanel);
+        gameplayUI.interactable = false;
         panel.SetActive(true);
         CustomEvents.instance.EndGame();
         gameEnded = true;

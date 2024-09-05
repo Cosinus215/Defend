@@ -21,18 +21,9 @@ public class ButtonManager : ScriptableObject {
         objectToActivate.SetActive(!objectToActivate.activeSelf);
     }
 
-    public void TogglePauseGame(Transform buttonsPanel) {
+    public void TogglePauseGame(CanvasGroup canvasGroup) {
         Time.timeScale = (Time.timeScale == 1f) ? 0.0f : 1.0f;
-        ToggleAllSpawnUnitsButtons(buttonsPanel);
-    }
-
-    public void ToggleAllSpawnUnitsButtons(Transform buttonsPanel) {
-        PlayButtonClickSound();
-        foreach (Button btn in buttonsPanel.GetComponentsInChildren<Button>()) {
-            if (btn != buttonsPanel) {
-                btn.interactable = !btn.interactable;
-            }
-        }
+        canvasGroup.interactable = !canvasGroup.interactable;
     }
 
     public void ExitGame() {
