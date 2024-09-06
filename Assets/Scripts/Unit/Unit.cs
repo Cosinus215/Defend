@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public enum type {
@@ -16,9 +15,10 @@ public class Unit : MonoBehaviour {
     private float health;
     private Weapon weapon;
     private Queue<Unit> enemyQueue = new Queue<Unit>();
-    public List<Unit> targets = new List<Unit>();
+    private Animator animator;
 
     private void Awake() {
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -27,16 +27,16 @@ public class Unit : MonoBehaviour {
     }
 
     private void Update() {
-        targets = enemyQueue.ToList();
-
         if (isAttacking) 
             return;
 
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+        animator.SetFloat("speed", speed);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (CanAttack(other, out Unit u)) {
+            animator.SetFloat("speed", 0);
             enemyQueue.Enqueue(u);
             isAttacking = true;
             Attack();
@@ -119,5 +119,9 @@ public class Unit : MonoBehaviour {
 
     public team GetUnitTeam() {
         return unitTeam;
+    }
+
+    public void SetAnimatorController(RuntimeAnimatorController animControl) {
+        animator.runtimeAnimatorController = animControl;
     }
 }

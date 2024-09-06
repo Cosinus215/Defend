@@ -23,6 +23,7 @@ public class SpawnPlace : ScriptableObject {
             u.SetGraphics(uS.GetUnitGraphics());
             u.SetHealth(uS.GetHealth());
             u.SetUnitTeam(unitTeam);
+            u.SetAnimatorController(uS.GetAnimatorController());
 
             if (Instantiate(uS.GetWeapon(), u.transform)
                 .TryGetComponent(out Weapon w))

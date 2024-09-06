@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fbf759528550246876f9a90addc4cf, type: 3}
+  m_Name: HammerUnit
+  m_EditorClassIdentifier: 
+  speed: 2
+  health: 50
+  unitTypeTemplate: {fileID: 6613090065609004498, guid: 34d83fcef5003e245a965144b4d689a8, type: 3}
+  unitGraphics: {fileID: 1594506577, guid: f4aea35b39bb4314ca4598cdd4fd1f3f, type: 3}
+  weapon: {fileID: 2948932908632904597, guid: 83bd89fb751238d45a2ffc930ff9ab30, type: 3}
+  manaNeeded: 20
+  animatorController: {fileID: 9100000, guid: 53af6ce7894c2bd469722a77b2bd7304, type: 2}

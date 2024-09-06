@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit", menuName = "Units/New Unit")]
@@ -9,6 +8,7 @@ public class UnitSpawn : ScriptableObject {
     [SerializeField] private Sprite unitGraphics;
     [SerializeField] private GameObject weapon;
     [SerializeField] private int manaNeeded;
+    [SerializeField] private RuntimeAnimatorController animatorController;
 
     public int GetManaNeeded() {
         return manaNeeded;
@@ -32,5 +32,9 @@ public class UnitSpawn : ScriptableObject {
 
     public GameObject GetUnitTypeTemplate() {
         return unitTypeTemplate;
+    }
+
+    public RuntimeAnimatorController GetAnimatorController() {
+        return animatorController;
     }
 }
