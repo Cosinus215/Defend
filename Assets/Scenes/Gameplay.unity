@@ -1490,11 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450.32983
+      value: 341.0177
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 122.49902
+      value: 85.83236
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1526,11 +1526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.16492
+      value: 225.50885
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -101.24951
+      value: -82.91618
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2778,11 +2778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450.32983
+      value: 341.0177
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 122.49902
+      value: 85.83236
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2814,11 +2814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.16492
+      value: 225.50885
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -346.24756
+      value: -364.5809
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3433,7 +3433,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 10
   m_ChildAlignment: 5
-  m_StartCorner: 0
+  m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 10, y: 10}
@@ -3534,7 +3534,7 @@ MonoBehaviour:
     m_Left: 20
     m_Right: 20
     m_Top: 42
-    m_Bottom: 20
+    m_Bottom: 36
   m_ChildAlignment: 0
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
@@ -3712,7 +3712,7 @@ RectTransform:
   m_GameObject: {fileID: 1436798551}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 1, z: 1}
+  m_LocalScale: {x: 6.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1821522524}
@@ -3783,7 +3783,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: afd8061e68a959d4abba5502ed98d632, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4365,11 +4365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450.32983
+      value: 341.0177
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 122.49902
+      value: 85.83236
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4401,7 +4401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.16492
+      value: 225.50885
       objectReference: {fileID: 0}
     - target: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4769,14 +4769,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.36196154, g: 0.6297027, b: 0.9245283, a: 1}
+  m_Color: {r: 0.21306516, g: 0.47786814, b: 0.7169812, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a99785f0fc80f4b4ebba41c2248c97b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5467,15 +5467,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.90588236}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.64705884}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 38f542ee81aef374d9021175b04cb099, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5505,15 +5505,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 55
+    m_Right: 55
     m_Top: 40
     m_Bottom: 40
-  m_ChildAlignment: 0
-  m_Spacing: 0
+  m_ChildAlignment: 4
+  m_Spacing: 55
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
