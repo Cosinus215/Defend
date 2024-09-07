@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour {
-    private LevelTemplate levelTemplate;
+    public static SpawnEnemies instance;
+    public LevelTemplate levelTemplate;
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+
+        levelTemplate = LevelManager.instance.levelTemplate;
+    }
 
     private void Start() {
-        levelTemplate = LevelManager.instance.levelTemplate;
+        
         if (levelTemplate == null) return;
 
         StartCoroutine(SpawnEnemyUnits(

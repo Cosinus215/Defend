@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 1.5
   health: 30
   unitTypeTemplate: {fileID: 4494231010307939850, guid: 742845f8f85990f41b521bca17e0a8cb, type: 3}
-  unitGraphics: {fileID: -68616645, guid: 9d72533ba0edb7f47bb2c6856d74497f, type: 3}
+  unitGraphics: {fileID: 21300000, guid: f99b6a6452353fa4c8491abd414f1054, type: 3}
   weapon: {fileID: 4791050267481888760, guid: 1f28b3856521a3e42a6cbbe74241342d, type: 3}
   manaNeeded: 10
   animatorController: {fileID: 9100000, guid: d74f571648286294b9fe08fd5e9af60a, type: 2}

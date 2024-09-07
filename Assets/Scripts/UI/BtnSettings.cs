@@ -8,6 +8,7 @@ public class BtnSettings : MonoBehaviour {
     [SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private UnitSpawn unitToSpawn;
     private Image buttonImage;
+    private bool disabled;
 
     private void Awake() {
         button = GetComponent<Button>();
@@ -15,12 +16,21 @@ public class BtnSettings : MonoBehaviour {
     }
 
     private void Start() {
+        AssignManaRequired();
+        AssignButtonSprite();
+        if (!SpawnEnemies.instance.levelTemplate.unitsToSpawn.Contains(unitToSpawn)) {
+            buttonImage.color = Color.black;
+            Destroy(button);
+            Destroy(this);
+        }
+
+        if (spawnPlace.unitTeam == team.Enemy) return;
+
         gameManager = GameManager.instance;
         CustomEvents.instance.onButtonClick += ButtonClick;
         button.onClick.AddListener(delegate { spawnPlace.CreateUnit(unitToSpawn); });
         button.onClick.AddListener(delegate { OnButtonClick(); });
-        AssignManaRequired();
-        AssignButtonSprite();
+
     }
 
     private void OnButtonClick() {
