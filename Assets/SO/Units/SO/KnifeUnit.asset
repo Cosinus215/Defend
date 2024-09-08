@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6fbf759528550246876f9a90addc4cf, type: 3}
-  m_Name: HammerUnit
+  m_Name: KnifeUnit
   m_EditorClassIdentifier: 
-  speed: 2
-  health: 50
+  speed: 3
+  health: 30
   unitTypeTemplate: {fileID: 6613090065609004498, guid: 34d83fcef5003e245a965144b4d689a8, type: 3}
-  unitGraphics: {fileID: -285286177, guid: a2e41250e797f7c4c8e43f82619c4d50, type: 3}
-  weapon: {fileID: 2948932908632904597, guid: 83bd89fb751238d45a2ffc930ff9ab30, type: 3}
-  manaNeeded: 20
+  unitGraphics: {fileID: -1590723859, guid: a2e41250e797f7c4c8e43f82619c4d50, type: 3}
+  weapon: {fileID: 8073665805052537829, guid: 85175e5f2c2250140ba34c0e0829d063, type: 3}
+  manaNeeded: 30
   animatorController: {fileID: 9100000, guid: 53af6ce7894c2bd469722a77b2bd7304, type: 2}
