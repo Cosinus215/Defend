@@ -22,6 +22,7 @@ public class BtnSettings : MonoBehaviour {
             buttonImage.color = Color.black;
             Destroy(button);
             Destroy(this);
+            return;
         }
 
         if (spawnPlace.unitTeam == team.Enemy) return;
