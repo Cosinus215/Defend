@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// TODO: Change name to "SpawnUnitButton"
 public class BtnSettings : MonoBehaviour {
     private GameManager gameManager;
     private Button button;
@@ -29,8 +30,13 @@ public class BtnSettings : MonoBehaviour {
 
         gameManager = GameManager.instance;
         CustomEvents.instance.onButtonClick += ButtonClick;
-        button.onClick.AddListener(delegate { spawnPlace.CreateUnit(unitToSpawn); });
-        button.onClick.AddListener(delegate { OnButtonClick(); });
+        button.onClick.AddListener(delegate { 
+            spawnPlace.CreateUnit(unitToSpawn); 
+        });
+
+        button.onClick.AddListener(delegate { 
+            OnButtonClick(); 
+        });
 
     }
 
