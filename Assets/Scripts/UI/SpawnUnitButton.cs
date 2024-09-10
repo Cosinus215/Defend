@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO: Change name to "SpawnUnitButton"
-public class BtnSettings : MonoBehaviour {
+public class SpawnUnitButton : MonoBehaviour {
     private GameManager gameManager;
     private Button button;
     private int manaRequired;
