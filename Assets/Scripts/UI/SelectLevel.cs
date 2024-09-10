@@ -12,6 +12,8 @@ public class SelectLevel : MonoBehaviour {
     }
 
     private void Start() {
+        if (level == null) return;
+
         button.onClick.AddListener(delegate {
             level.AddToLevelManager(); 
         });
