@@ -361,6 +361,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &222494512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3067603190007987740, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
+  m_PrefabInstance: {fileID: 1760171272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1428335524
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a6732e7b5f74cd7468a5b2be65e1e861, type: 3}
+    - target: {fileID: 1212133183932110387, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.799988
+      objectReference: {fileID: 0}
     - target: {fileID: 3067603190007987740, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_Name
       value: ExitButton
@@ -814,13 +823,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3067603190007987740, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1760171277}
   m_SourcePrefab: {fileID: 100100000, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
 --- !u!224 &1760171273 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4881156096024462492, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
   m_PrefabInstance: {fileID: 1760171272}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1760171277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222494512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52facb04abf46884ab1d5060417975c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1827002012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -832,6 +856,10 @@ PrefabInstance:
     - target: {fileID: 472177755322762947, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_Type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212133183932110387, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.799988
       objectReference: {fileID: 0}
     - target: {fileID: 3067603190007987740, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_Name
@@ -1007,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a6732e7b5f74cd7468a5b2be65e1e861, type: 3}
+    - target: {fileID: 1212133183932110387, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.799988
+      objectReference: {fileID: 0}
     - target: {fileID: 3067603190007987740, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_Name
       value: SettingsButton

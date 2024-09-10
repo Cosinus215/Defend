@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3a33a580ebd7bc142a975aec979287dd, type: 2}
   - {fileID: 11400000, guid: ab66b93f0babb1b41a84835ecc449c02, type: 2}
   spawnPlace: {fileID: 11400000, guid: 27939a4cde0128b4486f7f352610b5e6, type: 2}
+  unitSpawnDelay: 5

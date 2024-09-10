@@ -8,7 +8,6 @@ public class SpawnUnitButton : MonoBehaviour {
     [SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private UnitSpawn unitToSpawn;
     private Image buttonImage;
-    private bool disabled;
 
     private void Awake() {
         button = GetComponent<Button>();
@@ -18,25 +17,33 @@ public class SpawnUnitButton : MonoBehaviour {
     private void Start() {
         AssignManaRequired();
         AssignButtonSprite();
-        if (!SpawnEnemies.instance.levelTemplate.unitsToSpawn.Contains(unitToSpawn)) {
-            buttonImage.color = Color.black;
-            Destroy(button);
-            Destroy(this);
+        if (!SpawnEnemies.instance.GetLevelTemplate()
+           .GetUnitsToSpawn().Contains(unitToSpawn)) {
+            ManageButtonActivity();
             return;
         }
 
-        if (spawnPlace.unitTeam == team.Enemy) return;
+        if (spawnPlace.GetUnitTeam() == team.Enemy) return;
 
         gameManager = GameManager.instance;
+        AddOnClickToButtons();
+    }
+
+    private void ManageButtonActivity() {
+        buttonImage.color = Color.black;
+        Destroy(button);
+        Destroy(this);
+    }
+
+    private void AddOnClickToButtons() {
         CustomEvents.instance.onButtonClick += ButtonClick;
-        button.onClick.AddListener(delegate { 
-            spawnPlace.CreateUnit(unitToSpawn); 
+        button.onClick.AddListener(delegate {
+            spawnPlace.CreateUnit(unitToSpawn);
         });
 
-        button.onClick.AddListener(delegate { 
-            OnButtonClick(); 
+        button.onClick.AddListener(delegate {
+            OnButtonClick();
         });
-
     }
 
     private void OnButtonClick() {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +6,7 @@ public class DamageBase : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI baseHealthText;
 
     private void Start() {
-        UpdateUI(GameManager.instance.generalBasesHealth);
+        UpdateUI(GameManager.instance.GetGeneralBaseHealth());
         CustomEvents.instance.onEndGame += DestroySpawnPoints;
     }
 

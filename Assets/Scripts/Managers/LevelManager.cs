@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
     public static LevelManager instance;
-    public LevelTemplate levelTemplate;
+    [SerializeField] private LevelTemplate levelTemplate;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -12,5 +12,13 @@ public class LevelManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public LevelTemplate GetLevelTemplate() { 
+        return levelTemplate;
+    }
+
+    public void SetLevelTemplate(LevelTemplate lTemplate) {
+        levelTemplate = lTemplate;
     }
 }

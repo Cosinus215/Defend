@@ -28,11 +28,9 @@ public class Weapon : MonoBehaviour {
         WeaponActions weaponActions = animator.GetBehaviour<WeaponActions>();
         if (weaponActions == null) return;
 
-        weaponActions.animator = animator;
-        weaponActions.enemy = e;
-        weaponActions.unit = u;
-        weaponActions.damageValue = damageValue;
-        weaponActions.weapon = this;
+        weaponActions.SetUnits(e, u);
+        weaponActions.SetDamage(damageValue);
+        weaponActions.SetWeaponScript(this);
     }
 
     private void RangeAttack(Unit e, Unit u) {

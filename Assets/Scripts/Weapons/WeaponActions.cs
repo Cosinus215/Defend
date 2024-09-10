@@ -1,11 +1,10 @@
 using UnityEngine;
 
 public class WeaponActions : StateMachineBehaviour {
-    public Animator animator;
-    public Unit enemy;
-    public Unit unit;
-    public float damageValue;
-    public Weapon weapon;
+    private Unit enemy;
+    private Unit unit;
+    private float damageValue;
+    private Weapon weapon;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if (unit == null) {
@@ -27,5 +26,18 @@ public class WeaponActions : StateMachineBehaviour {
 
         unit.DelayAttack();
         animator.enabled = false;
+    }
+
+    public void SetUnits(Unit e, Unit u) {
+        enemy = e;
+        unit = u;
+    }
+
+    public void SetDamage(float d) { 
+        damageValue = d;
+    }
+
+    public void SetWeaponScript(Weapon w) {
+        weapon = w;
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour {
     public static SpawnEnemies instance;
-    public LevelTemplate levelTemplate;
+    private LevelTemplate levelTemplate;
+    private float unitSpawnDelay;
 
     private void Awake() {
         if (instance == null) {
@@ -13,26 +14,32 @@ public class SpawnEnemies : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        levelTemplate = LevelManager.instance.levelTemplate;
+        levelTemplate = LevelManager.instance.GetLevelTemplate();
+        unitSpawnDelay = levelTemplate.GetUnitSpawnDelay();
     }
 
     private void Start() {
-        
         if (levelTemplate == null) return;
 
         StartCoroutine(SpawnEnemyUnits(
-            levelTemplate.unitsToSpawn, levelTemplate.spawnPlace)
+            levelTemplate.GetUnitsToSpawn(), levelTemplate.GetSpawnPlace())
         );
     }
 
-    IEnumerator SpawnEnemyUnits(List<UnitSpawn> unitsToSpawn, SpawnPlace spawnPlace) {
+    IEnumerator SpawnEnemyUnits(List<UnitSpawn> unitsToSpawn, 
+        SpawnPlace spawnPlace) {
+
         if (unitsToSpawn.Count == 0) yield return null;
 
         int randomUnit = Random.Range(0, unitsToSpawn.Count);
 
         while (GameManager.instance.GetEnemyBaseHealth() > 0) {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(unitSpawnDelay);
             spawnPlace.CreateUnit(unitsToSpawn[randomUnit]);
         }
+    }
+
+    public LevelTemplate GetLevelTemplate() {
+        return levelTemplate;
     }
 }

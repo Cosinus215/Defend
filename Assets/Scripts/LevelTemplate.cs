@@ -3,10 +3,23 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Level/New Level")]
 public class LevelTemplate : ScriptableObject {
-    public List<UnitSpawn> unitsToSpawn = new List<UnitSpawn>();
-    public SpawnPlace spawnPlace;
+    [SerializeField] private List<UnitSpawn> unitsToSpawn = new List<UnitSpawn>();
+    [SerializeField] private SpawnPlace spawnPlace;
+    [SerializeField] private float unitSpawnDelay;
 
     public void AddToLevelManager() {
-        LevelManager.instance.levelTemplate = this;
+        LevelManager.instance.SetLevelTemplate(this);
+    }
+
+    public float GetUnitSpawnDelay() { 
+        return unitSpawnDelay;
+    }
+
+    public List<UnitSpawn> GetUnitsToSpawn() {
+        return unitsToSpawn;
+    }
+
+    public SpawnPlace GetSpawnPlace() { 
+        return spawnPlace;
     }
 }

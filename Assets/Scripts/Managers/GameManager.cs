@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public int generalBasesHealth;
+    public static GameManager instance;
+    [SerializeField] private int generalBasesHealth;
     [SerializeField] private CanvasGroup gameplayUI;
     [SerializeField] private ButtonManager buttonManager;
     [SerializeField] private GameObject wonPanel;
@@ -10,7 +11,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int mana;
     [SerializeField] private int maxMana;
     [SerializeField] private ManaBar manaBar;
-    public static GameManager instance;
     private int playerBaseHealth;
     private int enemyBaseHealth;
     private bool gameEnded;
@@ -51,6 +51,10 @@ public class GameManager : MonoBehaviour {
 
     public int GetEnemyBaseHealth() { 
         return enemyBaseHealth;
+    }
+
+    public int GetGeneralBaseHealth() {
+        return generalBasesHealth;
     }
 
     public int DecreasePlayerBaseHealth() {

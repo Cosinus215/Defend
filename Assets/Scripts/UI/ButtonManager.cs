@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ButtonManager", menuName = "ButtonManager/New ButtonManager")]
 public class ButtonManager : ScriptableObject {
@@ -32,7 +31,6 @@ public class ButtonManager : ScriptableObject {
         #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
         #endif
-
     }
 
     private void PlayButtonClickSound() {

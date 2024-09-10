@@ -22,7 +22,7 @@ public class SelectLevel : MonoBehaviour {
     }
 
     private void AddUsedUnitsIcons() {
-        foreach(UnitSpawn unit in level.unitsToSpawn) {
+        foreach(UnitSpawn unit in level.GetUnitsToSpawn()) {
             GameObject unitIcon = Instantiate(unitIconTamplate, unitsForLevelParent.transform);
             if (unitIcon.TryGetComponent(out Image i)) {
                 i.sprite = unit.GetUnitGraphics();
