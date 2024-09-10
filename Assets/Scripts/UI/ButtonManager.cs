@@ -15,6 +15,20 @@ public class ButtonManager : ScriptableObject {
         MusicManager.instance.PlayMusic(backgroundMusic);
     }
     
+    public void ToggleMusic() {
+        bool audioSourceEnabled = 
+            MusicManager.instance.GetAudioSource().enabled;
+
+        MusicManager.instance.GetAudioSource().enabled = !audioSourceEnabled;
+    }
+    
+    public void ToggleSoundEffects() {
+        bool audioSourceEnabled =
+           SoundManager.instance.GetAudioSource().enabled;
+
+        SoundManager.instance.GetAudioSource().enabled = !audioSourceEnabled;
+    }
+
     public void ToggleGameObject(GameObject objectToActivate) {
         PlayButtonClickSound();
         objectToActivate.SetActive(!objectToActivate.activeSelf);

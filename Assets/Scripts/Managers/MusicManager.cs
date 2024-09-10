@@ -20,4 +20,8 @@ public class MusicManager : MonoBehaviour {
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public AudioSource GetAudioSource() { 
+        return audioSource;
+    }
 }
