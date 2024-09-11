@@ -1,11 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ManaBar : MonoBehaviour {
     [SerializeField] private GameObject background;
-    [SerializeField] private GameObject slider;
+    [SerializeField] private List<RectTransform> sliders = new List<RectTransform>();
     private float maxSliderValue;
-    private RectTransform backgroundRectTransform;
-    private RectTransform sliderRectTransform;
+    private Vector2 backgroundDeltaSize;
 
     private void Awake() {
         GetRectTranform();
@@ -16,16 +16,19 @@ public class ManaBar : MonoBehaviour {
     }
 
     public void UpdateManaBar(float newMana) {
-        float sliderSize = backgroundRectTransform.sizeDelta.x;
+        float sliderSize = backgroundDeltaSize.x;
         float manaToWidthScale = sliderSize / maxSliderValue;
 
-        sliderRectTransform.sizeDelta = new Vector2( 
-            newMana * manaToWidthScale, 25 
-        );
+        foreach (RectTransform sliderRectTransform in sliders) {
+            sliderRectTransform.sizeDelta = new Vector2(
+                newMana * manaToWidthScale, 25
+            );
+        }
     }
 
     private void GetRectTranform() {
-        backgroundRectTransform = background.GetComponent<RectTransform>();
-        sliderRectTransform = slider.GetComponent<RectTransform>();
+        Vector2 bakcgroundSize = background.GetComponent<RectTransform>().sizeDelta;
+        backgroundDeltaSize = new Vector2(bakcgroundSize.x, bakcgroundSize.y);
+
     }
 }
