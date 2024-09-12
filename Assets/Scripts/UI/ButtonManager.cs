@@ -29,6 +29,11 @@ public class ButtonManager : ScriptableObject {
         SoundManager.instance.GetAudioSource().enabled = !audioSourceEnabled;
     }
 
+    public void ChangeGraphicsSetting(int graphicsLevel) {
+        graphicsLevel = Mathf.Clamp(graphicsLevel, 0, QualitySettings.names.Length - 1);
+        QualitySettings.SetQualityLevel(graphicsLevel, true);
+    }
+
     public void ToggleGameObject(GameObject objectToActivate) {
         PlayButtonClickSound();
         objectToActivate.SetActive(!objectToActivate.activeSelf);
