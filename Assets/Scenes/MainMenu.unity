@@ -995,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1019,7 +1019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SwitchMusic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1039,7 +1039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6705904106161123550, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_text
@@ -1585,7 +1585,7 @@ PrefabInstance:
     - target: {fileID: 4220398938584444202, guid: 56bee530c800dbd4e824b4b470a436b6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5dee72453e6d2a440b71d034b05afd11, type: 3}
+      objectReference: {fileID: 8300000, guid: 3aaf6546d13e59142be0b5696f281500, type: 3}
     - target: {fileID: 4740459757991175428, guid: 56bee530c800dbd4e824b4b470a436b6, type: 3}
       propertyPath: m_Name
       value: BackgroundMusic
