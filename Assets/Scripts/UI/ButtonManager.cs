@@ -15,6 +15,14 @@ public class ButtonManager : ScriptableObject {
         MusicManager.instance.PlayMusic(backgroundMusic);
     }
     
+    public void SoundSlider(float value) {
+        SoundManager.instance.GetAudioSource().volume = value;
+    }
+
+    public void MusicSlider(float value) {        
+        MusicManager.instance.GetAudioSource().volume = value;
+    }
+
     public void ToggleMusic() {
         bool audioSourceEnabled = 
             MusicManager.instance.GetAudioSource().enabled;
