@@ -3,6 +3,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour {
     public static MusicManager instance;
     private AudioSource audioSource;
+    [SerializeField] private Settings settings;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -14,6 +15,10 @@ public class MusicManager : MonoBehaviour {
         }
 
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start() {
+        settings.SetEverythingToOn();
     }
 
     public void PlayMusic(AudioClip clip) {

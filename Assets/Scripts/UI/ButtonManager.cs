@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "ButtonManager", menuName = "ButtonManager/New ButtonManager")]
 public class ButtonManager : ScriptableObject {
     [SerializeField] private AudioClip clickSound;
+    [SerializeField] private Settings settings;
 
     public void LoadNewScene(string scene) {
         PlayButtonClickSound();
@@ -24,17 +25,25 @@ public class ButtonManager : ScriptableObject {
     }
 
     public void ToggleMusic() {
-        bool audioSourceEnabled = 
-            MusicManager.instance.GetAudioSource().enabled;
+        if (settings.isLoaded == false) return;
 
-        MusicManager.instance.GetAudioSource().enabled = !audioSourceEnabled;
+        bool audioSourceMuted = 
+            MusicManager.instance.GetAudioSource().mute;
+
+        MusicManager.instance.GetAudioSource().mute = !audioSourceMuted;
+
+        settings.isBackgroundMusicOn = audioSourceMuted;
     }
     
     public void ToggleSoundEffects() {
-        bool audioSourceEnabled =
-           SoundManager.instance.GetAudioSource().enabled;
+        if (settings.isLoaded == false) return;
 
-        SoundManager.instance.GetAudioSource().enabled = !audioSourceEnabled;
+        bool audioSourceMuted =
+           SoundManager.instance.GetAudioSource().mute;
+
+        SoundManager.instance.GetAudioSource().mute = !audioSourceMuted;
+
+        settings.isSoundEffectOn = audioSourceMuted;
     }
 
     public void ChangeGraphicsSetting(int graphicsLevel) {

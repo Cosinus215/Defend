@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fe3692379bee140bdb94bbf13c9e1d, type: 3}
-  m_Name: ButtonManager
+  m_Script: {fileID: 11500000, guid: d30a3280a3ff10f489266ca492c6010e, type: 3}
+  m_Name: Settings
   m_EditorClassIdentifier: 
-  clickSound: {fileID: 8300000, guid: 91138aaba1811b34799cda0af297a058, type: 3}
-  settings: {fileID: 11400000, guid: d94c5eca091886e4e832be3d52f83a61, type: 2}
