@@ -80,9 +80,13 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6548044648667852029, guid: c733fa8298a4d7c47b5e17694fa6a257, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7460562957306934954, guid: c733fa8298a4d7c47b5e17694fa6a257, type: 3}
       propertyPath: m_Name
-      value: Spear Variant
+      value: Spear
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

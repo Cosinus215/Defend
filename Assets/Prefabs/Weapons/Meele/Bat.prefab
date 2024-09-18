@@ -60,9 +60,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1658874327, guid: a2e41250e797f7c4c8e43f82619c4d50, type: 3}
+    - target: {fileID: 6548044648667852029, guid: c733fa8298a4d7c47b5e17694fa6a257, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7460562957306934954, guid: c733fa8298a4d7c47b5e17694fa6a257, type: 3}
       propertyPath: m_Name
-      value: WeaponTemplate Variant
+      value: Bat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
