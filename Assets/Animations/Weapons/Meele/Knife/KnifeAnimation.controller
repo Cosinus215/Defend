@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d69be6a5d98f4443b6f8b394014eed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  enemy: {fileID: 0}
-  unit: {fileID: 0}
-  damageValue: 0
-  weapon: {fileID: 0}
 --- !u!1107 &-6343496537904609973
 AnimatorStateMachine:
   serializedVersion: 6
@@ -55,7 +50,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.8739496
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

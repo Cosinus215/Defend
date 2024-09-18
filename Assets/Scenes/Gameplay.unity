@@ -2546,7 +2546,7 @@ MonoBehaviour:
   buttonManager: {fileID: 11400000, guid: 562bf48b3710dc843a1571e2f0755432, type: 2}
   wonPanel: {fileID: 1711388376}
   lostPanel: {fileID: 768964958}
-  mana: 30
+  mana: 0
   maxMana: 100
   manaBar: {fileID: 904903081}
 --- !u!4 &941849103

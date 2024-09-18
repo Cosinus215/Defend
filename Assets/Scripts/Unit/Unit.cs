@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class Unit : MonoBehaviour {
     private Weapon weapon;
     private Queue<Unit> enemyQueue = new Queue<Unit>();
     private Animator animator;
+    private GameObject enemytoAttack;
 
     private void Awake() {
         animator = GetComponent<Animator>();
@@ -36,10 +38,13 @@ public class Unit : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (CanAttack(other, out Unit u)) {
-            animator.SetFloat("speed", 0);
             enemyQueue.Enqueue(u);
-            isAttacking = true;
-            Attack();
+            animator.SetFloat("speed", 0);
+
+            if (!isAttacking) {
+                isAttacking = true;
+                Attack();
+            }
         }
     }
 
@@ -60,10 +65,12 @@ public class Unit : MonoBehaviour {
 
     public void DelayAttack() {
         if (enemyQueue.Count == 0) {
+            isAttacking = false;
             return;
         }
 
-        if (enemyQueue.TryPeek(out Unit u) && u != null && u.GetHealth() <= 0) {
+        if (enemyQueue.TryPeek(out Unit u) 
+            && u != null && u.GetHealth() <= 0) {
             enemyQueue.Dequeue();
             Destroy(u.gameObject); 
         }
