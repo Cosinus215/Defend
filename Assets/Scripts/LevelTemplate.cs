@@ -6,6 +6,7 @@ public class LevelTemplate : ScriptableObject {
     [SerializeField] private List<UnitSpawn> unitsToSpawn = new List<UnitSpawn>();
     [SerializeField] private SpawnPlace spawnPlace;
     [SerializeField] private float unitSpawnDelay;
+    [SerializeField] private bool isWon;
 
     public void AddToLevelManager() {
         LevelManager.instance.SetLevelTemplate(this);
@@ -21,5 +22,13 @@ public class LevelTemplate : ScriptableObject {
 
     public SpawnPlace GetSpawnPlace() { 
         return spawnPlace;
+    }
+
+    public bool GetIsWon() { 
+       return isWon; 
+    }
+
+    public void SetIsWon(bool value) {
+        isWon = value;
     }
 }

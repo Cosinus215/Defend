@@ -5,14 +5,18 @@ public class SelectLevel : MonoBehaviour {
     [SerializeField] private LevelTemplate level;
     [SerializeField] private GameObject unitsForLevelParent;
     [SerializeField] private GameObject unitIconTamplate;
-    private Button button; 
+    private Button button;
+    private Image image;
 
     private void Awake() {
         button = GetComponent<Button>();
+        image = GetComponent<Image>();
     }
 
     private void Start() {
         if (level == null) return;
+
+        if (level.GetIsWon()) image.color = Color.green;
 
         button.onClick.AddListener(delegate {
             level.AddToLevelManager(); 

@@ -16,6 +16,10 @@ public class ButtonManager : ScriptableObject {
         MusicManager.instance.PlayMusic(backgroundMusic);
     }
     
+    public void GameWon() {
+        LevelManager.instance.GetLevelTemplate().SetIsWon(true);
+    }
+
     public void SoundSlider(float value) {
         if (settings.IsLoaded == false) return;
 
