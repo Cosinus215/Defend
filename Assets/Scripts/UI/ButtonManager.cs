@@ -17,38 +17,50 @@ public class ButtonManager : ScriptableObject {
     }
     
     public void SoundSlider(float value) {
+        if (settings.IsLoaded == false) return;
+
         SoundManager.instance.GetAudioSource().volume = value;
+
+        settings.SoundEffectSlider = value;
     }
 
-    public void MusicSlider(float value) {        
+    public void MusicSlider(float value) {
+        if (settings.IsLoaded == false) return;
+
         MusicManager.instance.GetAudioSource().volume = value;
+
+        settings.BackgroundMusicSlider = value;
     }
 
     public void ToggleMusic() {
-        if (settings.isLoaded == false) return;
+        if (settings.IsLoaded == false) return;
 
         bool audioSourceMuted = 
             MusicManager.instance.GetAudioSource().mute;
 
         MusicManager.instance.GetAudioSource().mute = !audioSourceMuted;
 
-        settings.isBackgroundMusicOn = audioSourceMuted;
+        settings.IsBackgroundMusicOn = audioSourceMuted;
     }
     
     public void ToggleSoundEffects() {
-        if (settings.isLoaded == false) return;
+        if (settings.IsLoaded == false) return;
 
         bool audioSourceMuted =
            SoundManager.instance.GetAudioSource().mute;
 
         SoundManager.instance.GetAudioSource().mute = !audioSourceMuted;
 
-        settings.isSoundEffectOn = audioSourceMuted;
+        settings.IsSoundEffectOn = audioSourceMuted;
     }
 
     public void ChangeGraphicsSetting(int graphicsLevel) {
+        if (settings.IsLoaded == false) return;
+
         graphicsLevel = Mathf.Clamp(graphicsLevel, 0, QualitySettings.names.Length - 1);
         QualitySettings.SetQualityLevel(graphicsLevel, true);
+
+        settings.GraphicsLevel = graphicsLevel;
     }
 
     public void ToggleGameObject(GameObject objectToActivate) {

@@ -18,7 +18,7 @@ public class MusicManager : MonoBehaviour {
     }
 
     private void Start() {
-        settings.SetEverythingToOn();
+        settings.SetEverythingToDefault();
     }
 
     public void PlayMusic(AudioClip clip) {

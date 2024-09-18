@@ -733,6 +733,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2043538771211389722, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043538771211389722, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043538771211389722, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043538771211389722, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2062139615}
+    - target: {fileID: 2043538771211389722, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2389582663804457613, guid: afe0d43d0b7e01046950a04cd8bb58ec, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -5734,7 +5754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5742,7 +5762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5766,7 +5786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadNewSceneOnTopOfAnother
+      value: ToggleGameObject
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5783,14 +5803,14 @@ PrefabInstance:
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2062139615}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6486045954559757890, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6705904106161123550, guid: 6840729acbeae9549b3db4fa141a65e3, type: 3}
       propertyPath: m_text

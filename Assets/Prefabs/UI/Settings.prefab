@@ -319,7 +319,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: d94c5eca091886e4e832be3d52f83a61, type: 2}
   backgroundMusicToggle: {fileID: 8566427177814701421}
-  SoundEffectsToggle: {fileID: 4547516572396996472}
+  backgroundMusicSlider: {fileID: 6459005333357984601}
+  soundEffectsToggle: {fileID: 4547516572396996472}
+  soundEffectsSlider: {fileID: 6487632909100522060}
+  graphicsLevel: {fileID: 8976915129273539373}
 --- !u!1 &1442913176311235726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1418,7 @@ GameObject:
   - component: {fileID: 6459005333357984601}
   - component: {fileID: 4377403953881791147}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BackgroundMusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
